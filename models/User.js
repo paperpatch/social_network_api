@@ -26,6 +26,13 @@ const UserSchema = new Schema(
         ref: 'User'
       }
     ]
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    // prevents virtuals from creating duplicate of _id as `id`
+    id: false
   }
 );
 
