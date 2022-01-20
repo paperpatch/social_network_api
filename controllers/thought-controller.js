@@ -27,11 +27,12 @@ const thoughtController = {
 
   // add thought
   addThought({ params, body }, res) {
-    console.log(params);
+    console.log("params", params);
+    console.log("body", body);
     Thought.create(body)
       .then(({ _id }) => {
-        return Thought.findOneAndUpdate(
-          { _id: params._id },
+        return User.findOneAndUpdate(
+          { _id: body.userId },
           { $push: { thoughts: _id } },
           { new: true }
         );
@@ -50,7 +51,7 @@ const thoughtController = {
   // add reaction to thought
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
-      { _id: params._id },
+      { _id: params.thoughtId },
       { $push: { reactions: body } },
       { new: true, runValidators: true }
     )
@@ -75,7 +76,7 @@ const thoughtController = {
   // remove Reaction
   removeReaction({ params }, res) {
     Thought.findOneAndUpdate(
-      { _id: params._id },
+      { _id: params.thoughtId },
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }
     )
