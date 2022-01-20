@@ -38,12 +38,10 @@ const ThoughtSchema = new Schema(
       default: Date.now,
       get: createdAtVal => dateFormat(createdAtVal)
     },
-    username: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-      }
-    ],
+    username: {
+      type: String,
+      required: true
+    },
     // use ReactionSchema to validate data for a reaction
     reactions: [ReactionSchema]
   },
