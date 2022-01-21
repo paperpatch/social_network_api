@@ -33,7 +33,7 @@ const thoughtController = {
       .then(({ _id }) => {
         return User.findOneAndUpdate(
           { _id: body.userId },
-          { $push: { thoughts: _id } },
+          { $addToSet: { thoughts: _id } },
           { new: true }
         );
       })
@@ -61,8 +61,18 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
+  // remove thought
+  removeThought({ params }, res) {
+    console.log(params);
+    Thought.findOneAndDelete({ _id: params.thoughtId })
+      .then(deletedThought => res.json(deletedThought))
+      .catch(err => res.json(err));
+  },
+
   // add reaction to thought
   addReaction({ params, body }, res) {
+    console.log("params:", params);
+    console.log("body:", body);
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       { $push: { reactions: body } },
@@ -77,17 +87,11 @@ const thoughtController = {
       })
       .catch(err => res.json(err));
   },
-
-  // remove thought
-  removeThought({ params }, res) {
-    console.log(params);
-    Thought.findOneAndDelete({ _id: params.thoughtId })
-      .then(deletedThought => res.json(deletedThought))
-      .catch(err => res.json(err));
-  },
   
   // remove Reaction
   removeReaction({ params }, res) {
+    console.log("params:", params);
+    console.log(params.reactions)
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       { $pull: { reactions: { reactionId: params.reactionId } } },
