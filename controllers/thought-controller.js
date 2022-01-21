@@ -33,7 +33,7 @@ const thoughtController = {
       .then(({ _id }) => {
         return User.findOneAndUpdate(
           { _id: body.userId },
-          { $addToSet: { thoughts: _id } },
+          { $push: { thoughts: _id } },
           { new: true }
         );
       })
@@ -91,7 +91,6 @@ const thoughtController = {
   // remove Reaction
   removeReaction({ params }, res) {
     console.log("params:", params);
-    console.log(params.reactions)
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       { $pull: { reactions: { reactionId: params.reactionId } } },
