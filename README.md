@@ -2,7 +2,7 @@
 
 ![Github license](http://img.shields.io/badge/license-MIT-blue.svg)
 
-Built a Social Network API using `Mongoose` to set up the database and `Insomnia` to test the api routes. This application utilizes NoSQL MongoDB.
+Social Network API is an startup social app where users have thoughts to share and other users can input reactions to the users' thoughts. Built by using `MongoDB` to set up the database and `Insomnia` to test the api routes. This application utilizes NoSQL MongoDB.
 
 ## Table of Contents
 
@@ -25,6 +25,8 @@ The database uses the following npm:
   - Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports both promises and callbacks.
 
 This repository requires [Insomnia Core](https://insomnia.rest/products/insomnia) to be utilized.
+
+This repository uses [MongoDB](https://www.mongodb.com/) to set up the database, models and routes.
 
 <br/>
 
