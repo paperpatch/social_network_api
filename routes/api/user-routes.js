@@ -22,10 +22,10 @@ router.route('/:id')
 
 // /api/users/:userId/friends
 router.route('/:id/friends')
-  .put(addFriend);
+  .post(addFriend);
 
 // /api/users/:userId/friends/:friendId
 router.route('/:id/friends/:friendId')
-  .put(removeFriend);
+  .delete(removeFriend);
 
 module.exports = router;
