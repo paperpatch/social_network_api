@@ -4,11 +4,6 @@
 
 Built a Social Network API using `Mongoose` to set up the database and `Insomnia` to test the api routes. This application utilizes NoSQL MongoDB.
 
-![Screenshot](./public/images/screenshots/trackend-login.png)
-![Screenshot](./public/images/screenshots/trackend-home.png)
-![Screenshot](./public/images/screenshots/trackend-all.png)
-![Screenshot](./public/images/screenshots/trackend-ticket-detail.png)
-
 ## Table of Contents
 
 * [Setup](#setup)
@@ -39,20 +34,51 @@ After installing all the necessary dependencies, start the server by typing `npm
 
 Use Insomnia to test the api routes. Use the following api routes to test your data. Use `http://localhost:3001/...` for the Insomnia address.
 
+
+
 User Routes:
+
 - `/api/users`
 - `/api/users/:id`
+
+User Inputs:
+
+- GET all Users
+- GET Users by ID
+- POST User
+- PUT User
+- DEL User.
+
+See the following gif for a walkthrough of User routes:
+
+![user_path](./assets/gifs/social_network_users_path.gif)
+
+Friend Routes:
+
 - `/api/users/:userId/friends`
 - `/api/users/:userId/friends/:friendId`
 
-See the following gif for a walkthrough of:
-- User GET
-- Get users by ID
-- CREATE user
-- UPDATE user
-- DELETE user.
+Friend Inputs:
+
+- POST friends
+- DEL friends
+
+![friend_path]
+
+Thought Routes:
+
+- `/api/thoughts/`
+- `/api/thoughts/<thoughtId>`
+
+Thought Inputs:
+
+- 
+
+See the following 
 
 
+- `/api/thoughts/<thoughtId>/reactions`
+- `/api/thoughts/<thoughtId>/reactions/<reactionId>`
 
 ## Deployment
 
